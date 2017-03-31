@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	   
+	   <script>
+             //...................回退到提交前的状态.....................
+             
+             //1.0 没有push    
+             //     这个是后已经是 add commit了 只是放到本地仓库的时候还没有push到git仓库
+             //      
+             //      commit标识符的查看就是直接输入 git log 可以看见每次comit的标识符 a830278a  一般取前七位数就可以了
+             //      
+             //     三种类型  git reset 
+             //     --mixed  这个时候回去保留源码,只是将git commit和index信息回退了到某个版本
+             //     --soft   保留源码,只回退到commit信息到某个版本 不涉及index的回退,如果还需要提交就是直接commit即可
+             //     --hard    改变本地的仓库的源码,直接回退   git hard   a830278a
+             //     
+             //2.0 已经push了   push后的代码回滚都是跟提交的源码一致  会直接改变源码
+             //     
+             //      revert         git revert 用于反转提示,执行evert 命令的时候要求工作数必须是干净的     
+             //                     git revert c011eb3c20ba6fb38cc94fe5a8dda366a3990c61(标识符一般前七位就可以了)
+             //                           
+	   </script>
+</body>
+</html>
