@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	      
+	       <script>
+  /*
+      将sublime改成一个python的编译模式  
+
+      点击tools->新系统->将里面的配置改成
+
+         {
+          "cmd": ["***********","-u","$file"],
+          "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+          "selector": "source.python",
+          "encoding": "cp936",
+          }   
+       其中***********处填写你的电脑中python的安装路径
+       
+       -> Ctrl+S保存到SublimeText——>Data——>Packages——>User下
+文件名保存为Python.sublime-build即可。
+   */
+
+/*
+      在sublime中将字符编码改成utf-8来编码
+       
+       # -*- coding: utf-8 -*-  在头部加上这个转编码格式
+
+
+ */
+
+
+
+
+
+ #coding=utf-8
+# python的默认编码格式ascii格式 在第一行改为utf-8两种方法   1.0 #coding=utf-8      1.1#_*_coding:UTF-8_*_
+#修改编译器的默认格式 进入file>settings  进入encoding  找到 editor>file encoding 将IDE Encoding和project Encoding设置为utf-8
+print "你好,世界",
+
+#交互式编程   交互式编程不需要创建脚本文件,是通过python解释器的交互模式进来编写代码
+#windows 命令行中直接输入一个 python就可以启动交互式编程, 从而在>>>里面直接进行交互式编程
+
+#脚本式编程   通过脚本参数,调用解释器开始执行脚本,直到脚本执行完毕,当脚本执行完成后,解释器不再有效果 就是直接在命令行里面输入一个 python 文件名 就可以了
+
+#python标识符
+   1.0在python里,标识符是有字母,数字,下划线组成
+   1.1在python中所有的标识符不能以数字开头,区分大小写
+   1.2在python中以下划线开头的标识符是有特殊意义的,以单下划线的代表不能直接访问的类属性,需通过类提供的接口进行访问,不能用from xxx import而导入
+       以双下划线__开头的代表类的私有成员,
+       以双下划线开头和结尾的__foo__代表python里的特殊方法专用的标识,如__init__()代表类的构造函数
+
+   
+
+
+  .........................python语法规范.............................   
+   //所有代码块语句必须包含相同的缩进空白数量這个是必须严格执行 
+   //
+   //python语句当中一般是以换行作为语句的结束符号
+   //
+   //但是我们可以使用斜杠(\)将一行语句显示为多行,但是当语句中有括号的时候就不要使用\
+   //
+   //print是不换行的,如果想要去换行,在print后面加上一个,号
+   //
+   //python中的变量赋值是可以连等的，js中不可以
+   //
+   //python有五个标准的数据类型 
+   //    Number String List Tuple（元组） Dictionary（字典）
+   //    
+   //python->Number->init(符号整形)，long（长整数型，也可以为八进制和十六进制），float(浮点数)，complex（复数）  
+   
+
+
+   /*
+   
+   ......................通过索引来提取内容..................
+     str="Hello World"
+     print str[0]->H
+     print str[0:2]->He
+     print str[0:]->Hello world 代表这从索引0开始往后取全部的
+     print str * 2->输出str两次
+     print str +"T->加号是用来连接字符串用的
+
+    */
+   
+   /*
+    ........................... 元组(就是数组不能做任何修改).....................
+   
+    元组->() 元组里面的内容只能读取不能写进修改 注意:元组通过圆括号中用逗号分隔的项目定义。
+      
+
+    ........................... 列表(数组)........................
+   
+    就是一个数组差不多的东西[]  具有 增加.append()  删除del arr[索引] 排序 .sort()
+
+    数组中的循坏的一个列表数量就是for i a range(0,len(a))代表的就是我们将這个范围的数组给循坏一遍
+
+   
+   ............................. 字典dictionary(对象)...........................
+   
+    就是一个跟对象差不多的数据类型,我们可以通过键值对的形式来访问数据
+
+    添加 a["xiaoming"]="小明"  删除   del a["xiaoming"] 
+
+     字典的函数使用
+
+      len(a)   计算字典元素的个数,即键的总数len(a)  输出的是一个具体的数字
+
+      str(a[xiaoming])   输出字典可打印的字符串表示 就是将输出的内容转换为字符串类型
+
+      type(a)   就是用来现实变量的类型用的    
+
+      cmp(a,b)比较两个dictionary元素a和b   
+      两个相同就返回0,前一个大于后一个就返回1,后一个大于前一个就返回-1
+
+    字典的方法使用:
+
+      a.clear()       代表删除掉所有的条目
+      a.copy()        代表返回一个字典的浅复制
+      a.get(key)      返回一个指定的键的值,如果只不在字典中就是返回default值
+      a.has_key(key)  如果键在在字典中就是返回true负责就是返回false
+      js中检测是否有这个键(ary.hasOwnProperty(key); 或 obj.hasOwnProperty(key);)
+      a.keys()        代表着返回一个字典中的所有的键
+      a.values()      以列表的形式将dictionary中的值返回,
+      a.update(b)     代表着把b dictionary中的键/值更新到a中去
+      在js中這个就是相当于两个对象之间直接复制,就是相当于直接继承了别人的属性跟值
+      a.items()       就是相当于把a字典里面的键/值以{}隔开放到元组里面[('xiaoming', 18), ('xiaohong', 20),]
+    
+
+       
+
+      python数据类型转换  
+
+
+
+
+    */  
+
+	       </script>
+</body>
+</html>

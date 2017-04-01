@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	      
+
+
+	      <script>
+          //.........................html部分...........................
+          //1.0使用wrapper来包裹住里面的滚动内容,只有包裹了才会生效
+          //1.0  <div id="wrapper"> 
+          //
+          //      </div>
+          // 2.0 因为只有wrapper里面的第一个子元素才能滚动,所以要让多个元素滚动,写法如下
+                /*
+                 <div id="wrapper"> 
+                    <div id="scroller">
+                            <ul>
+                                <li></li>
+                                     ...
+                            </ul>
+                            <ul>
+                                 <li></li>
+                                    ...
+                             </ul>
+                </div>
+                </div>
+                 */
+          //3.0..............................js调用部分....................
+          //
+               /*
+                3.1  使用onDomContentLoaded事件实现滚动
+
+                   适用于滚动内容只包含文字,图片,并且所有的图片都有固定的尺寸
+
+                   var myscroll;  //myscroll是全局变量可以在任意地方调用
+                   function loaded(){
+	                   myscroll=new iScroll("wrapper");
+                   }
+                   window.addEventListener("DOMContentLoaded",loaded,false)
+
+
+                3.2     使用于onLoad事件实现滚动
+                 因为DomContentLoaded事件是载入DOM结构后就会被调用,所以图片未载入前可能无法确定滚动区域的长度,此时可以使用onLoad事件来实现
+
+                 var myscroll;
+
+                 function loaded(){
+	                setTimeout(function(){
+	                   myscroll=new iScroll("wrapper");
+	                },100);
+                 }
+                 window.addEventListener("load",loaded,false)
+                
+                 //這种情况下iScroll会在页面资源(包括图片)加载完成100ms之后得到初始化.這应该是一种安全的调用iScroll的方式
+
+
+                 3.3 弹框中的滚动条加载
+                 弹框一般用display:none和display:block切换来实现 display:none的元素浏览器没有渲染所以无法计算滚动内容的高度.
+                 所以在弹框调用show()显示出来后,在实例化滚动条区域
+                 $("#mobile_show_duobao_all_num").show();
+                      new iScroll('tc-wrapper2', {
+                          scrollbarClass: 'myScrollbar' ,
+                          hScrollbar:false,
+                          vScroll:true,
+                          hideScrollbar: false //是否隐藏滚动条  
+                      }); 
+                */      
+
+
+	      </script>
+</body>
+</html>
